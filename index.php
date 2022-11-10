@@ -22,13 +22,16 @@ $generos = $comando -> fetchAll (PDO::FETCH_ASSOC);
         <tr>
             <th>Id</th>
             <th>Nome</th>
+            <th>&nbsp;</th>
            
         </tr>
 <?php foreach($generos as $g): ?>   
     <tr> 
         <td><?= $g['id'] ?></td>
         <td><?= $g['nome'] ?></td>
-
+        <td>
+            <a href="update.php?id=<?= $g['id'] ?>">Editar</a>
+        </td>
     </tr>
 <?php endforeach ?>
 </table> 

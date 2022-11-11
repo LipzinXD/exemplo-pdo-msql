@@ -8,20 +8,12 @@ $bd = new MySQLConnection(); //PDO('mysql:host=localhost;dbname=biblioteca', 'ro
 $comando = $bd->prepare('SELECT * FROM generos');
 $comando->execute();
 $generos = $comando->fetchAll(PDO::FETCH_ASSOC);
+
+$_title = 'Gêneros';
+
 ?>
+<?php include('./includes/header.php') ?>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Biblioteca</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-</head>
-
-<body>
-    <main class="container">
         <a class="btn btn-primary" href="insert.php">Novo Genêro</a>
         <table class="table">
             <tr>
@@ -41,7 +33,4 @@ $generos = $comando->fetchAll(PDO::FETCH_ASSOC);
                 </tr>
             <?php endforeach ?>
         </table>
-    </main>
-</body>
-
-</html>
+    <?php include('./includes/footer.php') ?>
